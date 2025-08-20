@@ -1,0 +1,135 @@
+/**
+ * Classwork 6 - Report
+ * Collect all answers to runtime analysis problems here.
+ * 
+ * GROUP MEMBERS:
+ *   1. -
+ *   2. -
+ *   3. -
+ */
+
+
+// [!] IF UNSURE OF ANY ANSWER FORMATS, SEE THE EXAMPLE ON
+//     THE CW 6 SPEC FOR checkAndGrow
+
+ 
+// -------------------------------------------------------
+// Problem 1
+// -------------------------------------------------------
+
+/**
+ * Assumptions:
+ *  - Let ... TODO
+ *  - Worst Case Assumption: TODO
+ */
+
+/**
+ * Returns the number of unique, unrepeated words that are found
+ * in the given sentence sent
+ * NOTE: This solution is not very good!!! It can be simplified
+ * by using ArrayLists, but even those aren't the best choice here!
+ * @param sent The sentence in which to count unique words
+ * @return The number of unique, unrepeated words in sent
+ */
+public static int uniqueWords (String sent) {
+    String[] words = sent.split(" ");
+    String currWord, compWord;
+    int count = 0;
+
+    // Compare each pair of words (again, warning: not great)
+    for (int i = 0; i < words.length; i++) {
+        boolean repeatFound = false;
+        currWord = words[i];
+        if (currWord.equals("")) { continue; }
+        
+        for (int j = 0; j < words.length; j++) {
+            compWord = words[j];
+            if (currWord.equals(compWord) && i != j) {
+                repeatFound = true;
+                break;
+            }
+        }
+        
+        // Only increment the count for the first occurrence of each match
+        count += (repeatFound) ? 0 : 1;
+    }
+
+    return count;
+}
+
+/*
+ * Total Cost Analysis:
+ *   TODO
+ */
+ 
+ 
+// -------------------------------------------------------
+// Problem 2
+// -------------------------------------------------------
+
+/**
+ * Assumptions:
+ *  - Let ... TODO
+ *  - Worst Case Assumption: TODO
+ */
+public static ArrayList<String> reverse_A (ArrayList<String> arr) {
+    ArrayList<String> result = new ArrayList<String>();
+    for (int i = 0; i < arr.size(); i++) {
+        result.add(0, arr.get(i));
+    }
+    return result;
+}
+  
+public static ArrayList<String> reverse_B (ArrayList<String> arr) {
+    ArrayList<String> result = new ArrayList<String>();
+    for (int i = arr.size() - 1; i >= 0; i--) {
+        result.add(arr.get(i));
+    }
+    return result;
+}
+
+/*
+ * Total Cost Analysis:
+ *   TODO
+ */
+ 
+ 
+// -------------------------------------------------------
+// Problem 3
+// -------------------------------------------------------
+
+/**
+ * Assumptions:
+ *  - Let ... TODO
+ *  - Worst Case Assumption: TODO
+ */
+public static boolean isSubset (int[] a1, int[] a2) {
+    for (int i = 0; i < a1.length; i++) {
+        boolean contained = false;
+        for (int j = 0; j < a2.length; j++) {
+            if (a1[i] == a2[j]) {
+                contained = true;
+                break;
+            }
+        }
+        if (!contained) {return false;}
+    }
+    return true;
+}
+
+/*
+ * Total Cost Analysis:
+ *   TODO
+ */
+ 
+ 
+// -------------------------------------------------------
+// FINAL ANSWERS
+// Please collect your final answers to the above, below.
+// Example: 3. O(n^4)
+// -------------------------------------------------------
+
+1.  TODO
+2A. TODO
+2B. TODO
+3.  TODO
